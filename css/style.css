@@ -1,0 +1,1066 @@
+/* Global color variables for dark mode */
+:root {
+  --bg: #061120;
+  --surface: #0d1b2a;
+  --surface-soft: #13263a;
+  --surface-elevated: rgba(16, 30, 48, 0.88);
+  --text: #f8fbff;
+  --muted: #c6d1dd;
+  --primary: #4cc9f0;
+  --primary-strong: #4895ef;
+  --accent: #b5179e;
+  --accent-soft: rgba(181, 23, 158, 0.18);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.26);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --container: 1180px;
+  --header-height: 84px;
+}
+
+/* Color variables used when light mode is active */
+body.light {
+  --bg: #f5f8fc;
+  --surface: #ffffff;
+  --surface-soft: #eff4fa;
+  --surface-elevated: rgba(255, 255, 255, 0.9);
+  --text: #102033;
+  --muted: #53657a;
+  --primary: #2d6cdf;
+  --primary-strong: #234faf;
+  --accent: #c2188b;
+  --accent-soft: rgba(194, 24, 139, 0.12);
+  --border: rgba(16, 32, 51, 0.12);
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+/* Global reset and base behavior */
+* {
+  box-sizing: border-box;
+}
+
+/* Enables smooth scrolling between sections */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main body design and page background */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(76, 201, 240, 0.09),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(181, 23, 158, 0.1),
+      transparent 32%
+    ),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Prevents background scrolling when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Makes images and videos responsive */
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Removes default link styling */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Keeps form controls using the same font */
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* Reusable page container */
+.container {
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
+}
+
+/* Header section */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: var(--header-height);
+  background: rgba(7, 16, 31, 0.78);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+}
+
+/* Header background in light mode */
+body.light .site-header {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+/* Navigation bar layout */
+.navbar {
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Website logo / brand text */
+.logo {
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual navigation link */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--muted);
+  font-weight: 700;
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+/* Animated underline for navigation links */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms ease;
+}
+
+/* Hover, focus, and active navigation state */
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.active {
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+/* Shows underline when link is active or hovered */
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Theme toggle and mobile menu button */
+.theme-toggle,
+.menu-button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-elevated);
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+/* Button hover effect */
+.theme-toggle:hover,
+.menu-button:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Mobile menu button hidden on desktop */
+.menu-button {
+  display: none;
+  place-items: center;
+  gap: 4px;
+  padding: 12px;
+}
+
+/* Hamburger menu lines */
+.menu-button span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+/* General section spacing */
+.section {
+  position: relative;
+  padding: 5.5rem 0;
+  scroll-margin-top: calc(var(--header-height) + 10px);
+}
+
+/* Alternate section background */
+.section.alt {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Alternate section background in light mode */
+body.light .section.alt {
+  background: rgba(16, 32, 51, 0.04);
+}
+
+/* Home hero section */
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  display: grid;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* Hero video background wrapper */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Hero background video */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  filter: saturate(1.08) contrast(1.05) brightness(0.72);
+}
+
+/* Dark overlay above video for readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 11, 22, 0.82) 0%,
+      rgba(4, 11, 22, 0.72) 35%,
+      rgba(4, 11, 22, 0.4) 60%,
+      rgba(4, 11, 22, 0.74) 100%
+    ),
+    linear-gradient(180deg, rgba(7, 12, 22, 0.18), rgba(7, 12, 22, 0.48));
+}
+
+/* Decorative glowing gradients in hero */
+.hero-gradient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  animation: floatGlow 9s ease-in-out infinite alternate;
+}
+
+/* First hero glow */
+.hero-gradient-one {
+  width: 320px;
+  height: 320px;
+  background: rgba(76, 201, 240, 0.26);
+  left: -4rem;
+  top: 12%;
+}
+
+/* Second hero glow */
+.hero-gradient-two {
+  width: 300px;
+  height: 300px;
+  background: rgba(181, 23, 158, 0.25);
+  right: -4rem;
+  bottom: 12%;
+  animation-delay: 1.5s;
+}
+
+/* Hero content grid */
+.hero-layout {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - var(--header-height));
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  align-items: center;
+  gap: 2.5rem;
+  padding-block: 3.5rem;
+}
+
+/* Main hero title */
+.hero-title {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+/* Hero subtitle */
+.hero-subtitle {
+  margin: 1rem 0 0;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 700;
+  color: #eef6ff;
+}
+
+/* Small uppercase labels */
+.eyebrow {
+  margin: 0 0 0.6rem;
+  display: inline-block;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+/* Lead paragraph text */
+.lead {
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+/* Hero action buttons container */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* General button style */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 800;
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    background-color 240ms ease,
+    color 240ms ease;
+}
+
+/* Primary button style */
+.button.primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  box-shadow: 0 16px 30px rgba(53, 118, 209, 0.25);
+}
+
+/* Secondary button style */
+.button.secondary {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* Secondary button in light mode */
+body.light .button.secondary {
+  border-color: rgba(16, 32, 51, 0.15);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+/* Button hover animation */
+.button:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Hero image card */
+.hero-card {
+  justify-self: end;
+  width: min(100%, 430px);
+}
+
+/* Image frame around profile image */
+.image-frame {
+  position: relative;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+/* Profile image inside hero */
+.profile-image {
+  width: 100%;
+  aspect-ratio: 4 / 4.4;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 0.5rem);
+}
+
+/* Scroll indicator button */
+.scroll-indicator {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 1.6rem;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 84px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* Animated dot inside scroll indicator */
+.scroll-indicator span {
+  width: 10px;
+  height: 20px;
+  border-radius: 999px;
+  background: #fff;
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+/* Section heading block */
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 2.3rem;
+}
+
+/* Centered section heading */
+.section-heading.center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+/* Section heading title */
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+/* Section heading paragraph */
+.section-heading p {
+  color: var(--muted);
+}
+
+/* Two-column layout for About, Skills, and Contact */
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.95fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Vertical card stack layout */
+.stack-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Shared card surfaces */
+.info-card,
+.card,
+.timeline-item,
+.contact-form,
+.progress-panel {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+/* Shared card spacing */
+.info-card,
+.card,
+.contact-form,
+.progress-panel {
+  padding: 1.2rem;
+}
+
+/* Card headings */
+.info-card h3,
+.card h3,
+.timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Card paragraph text */
+.info-card p,
+.card p,
+.timeline-content p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Portfolio and certificate card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+/* Image wrapper inside cards */
+.media-wrap {
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+
+/* Card and timeline images */
+.card img,
+.timeline-media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition:
+    transform 600ms ease,
+    filter 600ms ease;
+}
+
+/* Image zoom on hover */
+.card:hover img,
+.timeline-item:hover img,
+.hero-card:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.06);
+}
+
+/* Shared transition effects */
+.card,
+.info-card,
+.timeline-item,
+.skill-chip,
+.contact-form,
+.progress-item,
+.button,
+.image-frame {
+  transition:
+    transform 280ms ease,
+    box-shadow 280ms ease,
+    border-color 280ms ease,
+    background-color 280ms ease;
+}
+
+/* Card hover lift effect */
+.card:hover,
+.info-card:hover,
+.timeline-item:hover,
+.contact-form:hover,
+.image-frame:hover {
+  transform: translateY(-8px);
+  border-color: rgba(76, 201, 240, 0.28);
+}
+
+/* Skills chip list */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* Individual skill chip */
+.skill-chip {
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  font-weight: 700;
+}
+
+/* Skills progress panel */
+.progress-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Progress label row */
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.45rem;
+  font-weight: 700;
+}
+
+/* Progress bar background */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Progress bar background in light mode */
+body.light .progress-bar {
+  background: rgba(16, 32, 51, 0.08);
+  border-color: rgba(16, 32, 51, 0.06);
+}
+
+/* Progress bar fill */
+.progress-bar span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+/* Progress bar animation when visible */
+.progress-item.is-visible .progress-bar span {
+  width: var(--bar-width);
+  transition: width 1200ms ease-out 150ms;
+}
+
+/* Blog timeline layout */
+.timeline {
+  display: grid;
+  gap: 1.2rem;
+}
+
+/* Individual timeline item */
+.timeline-item {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Timeline image wrapper */
+.timeline-media {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Contact section layout */
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Contact form layout */
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Form field wrapper */
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+/* Form labels */
+label {
+  font-weight: 700;
+}
+
+/* Input and textarea fields */
+input,
+textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 0.95rem 1rem;
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease,
+    background-color 200ms ease;
+}
+
+/* Form fields in light mode */
+body.light input,
+body.light textarea {
+  background: rgba(16, 32, 51, 0.04);
+}
+
+/* Form field focus state */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* JavaScript form response message */
+.form-message {
+  min-height: 1.5rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Footer section */
+.site-footer {
+  padding: 2rem 0 2.8rem;
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Footer in light mode */
+body.light .site-footer {
+  background: rgba(16, 32, 51, 0.04);
+}
+
+/* Footer content layout */
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Footer paragraph text */
+.footer-grid p {
+  color: var(--muted);
+  margin: 0.35rem 0 0;
+}
+
+/* Right side of footer */
+.footer-right {
+  text-align: right;
+}
+
+/* Copyright text */
+.copyright {
+  margin-top: 1rem;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+/* Footer alignment on small phones */
+@media (max-width: 680px) {
+  .footer-right {
+    text-align: left;
+  }
+}
+
+/* Reveal animation base state */
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition:
+    opacity 820ms ease,
+    transform 820ms ease,
+    filter 820ms ease;
+}
+
+/* Reveal animation visible state */
+.reveal.is-visible {
+  opacity: 1;
+  filter: none;
+}
+
+/* Fade animation from bottom */
+.fade-up {
+  transform: translateY(56px);
+  filter: blur(7px);
+}
+
+/* Fade animation from top */
+.fade-down {
+  transform: translateY(-34px);
+  filter: blur(6px);
+}
+
+/* Fade animation from right side */
+.fade-left {
+  transform: translateX(60px);
+  filter: blur(7px);
+}
+
+/* Fade animation from left side */
+.fade-right {
+  transform: translateX(-60px);
+  filter: blur(7px);
+}
+
+/* Zoom reveal animation */
+.zoom-in {
+  transform: scale(0.84);
+  filter: blur(6px);
+}
+
+/* Pop reveal animation for skill chips */
+.pop-in {
+  transform: scale(0.6) rotate(-8deg);
+  filter: blur(5px);
+}
+
+/* Rotate reveal animation for certificate cards */
+.rotate-in {
+  transform: perspective(800px) rotateY(25deg) translateY(24px);
+  filter: blur(5px);
+}
+
+/* Final state for all reveal animations */
+.reveal.is-visible.fade-up,
+.reveal.is-visible.fade-down,
+.reveal.is-visible.fade-left,
+.reveal.is-visible.fade-right,
+.reveal.is-visible.zoom-in,
+.reveal.is-visible.pop-in,
+.reveal.is-visible.rotate-in {
+  transform: none;
+}
+
+/* First animation delay */
+.delay-1 {
+  transition-delay: 90ms;
+}
+
+/* Second animation delay */
+.delay-2 {
+  transition-delay: 190ms;
+}
+
+/* Third animation delay */
+.delay-3 {
+  transition-delay: 290ms;
+}
+
+/* Fourth animation delay */
+.delay-4 {
+  transition-delay: 390ms;
+}
+
+/* Fifth animation delay */
+.delay-5 {
+  transition-delay: 490ms;
+}
+
+/* Sixth animation delay */
+.delay-6 {
+  transition-delay: 590ms;
+}
+
+/* Section flash animation from JavaScript */
+.section-focus-flash {
+  animation: sectionFlash 850ms ease;
+}
+
+/* Floating animation for hero card */
+.floating-card {
+  animation: floatingCard 5.6s ease-in-out infinite;
+}
+
+/* Text shadow for hero text */
+.hero-title,
+.hero-subtitle,
+.lead {
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Magnetic hover target setup */
+.magnetic {
+  transform-origin: center center;
+}
+
+/* Scroll indicator keyframe animation */
+@keyframes scrollPulse {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+/* Hero glow floating keyframe animation */
+@keyframes floatGlow {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(20px, -25px, 0) scale(1.08);
+  }
+}
+
+/* Hero image floating keyframe animation */
+@keyframes floatingCard {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Section focus flash keyframe animation */
+@keyframes sectionFlash {
+  0% {
+    box-shadow: inset 0 0 0 0 rgba(76, 201, 240, 0);
+  }
+  42% {
+    box-shadow: inset 0 0 0 100vmax rgba(76, 201, 240, 0.075);
+  }
+  100% {
+    box-shadow: inset 0 0 0 0 rgba(76, 201, 240, 0);
+  }
+}
+
+/* Tablet and small laptop responsive layout */
+@media (max-width: 980px) {
+  /* Shows mobile menu button */
+  .menu-button {
+    display: grid;
+  }
+
+  /* Mobile navigation menu panel */
+  .nav-links {
+    position: fixed;
+    inset: var(--header-height) 0 auto 0;
+    background: rgba(6, 17, 32, 0.96);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 260ms ease,
+      opacity 260ms ease;
+  }
+
+  /* Mobile navigation in light mode */
+  body.light .nav-links {
+    background: rgba(255, 255, 255, 0.97);
+  }
+
+  /* Open mobile navigation state */
+  .nav-links.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Converts major layouts to one column */
+  .hero-layout,
+  .two-column,
+  .contact-layout,
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  /* Two-column cards on tablet */
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Aligns hero image on smaller screens */
+  .hero-card {
+    justify-self: start;
+  }
+}
+
+/* Phone responsive layout */
+@media (max-width: 680px) {
+  /* Reduces section spacing */
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  /* Adjusts hero spacing on phones */
+  .hero-layout {
+    padding-block: 2.5rem 5.5rem;
+  }
+
+  /* Makes cards one column */
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stacks hero buttons vertically */
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Makes scroll indicator smaller */
+  .scroll-indicator {
+    width: 48px;
+    height: 72px;
+  }
+}
+
+/* Accessibility: reduces motion for users who prefer less animation */
+@media (prefers-reduced-motion: reduce) {
+  /* Disables smooth scrolling */
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Minimizes all animations and transitions */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keeps reveal elements visible without animation */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

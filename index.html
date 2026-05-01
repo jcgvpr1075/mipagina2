@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Makes the website responsive on phones, tablets, and desktops -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Helps old versions of Internet Explorer use the latest rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Improves mobile browser behavior -->
+    <meta name="theme-color" content="#061120" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Provides a short website description for browsers and search engines -->
+    <meta
+      name="description"
+      content="Fernando Lozano Inc portfolio website built with HTML5, CSS3, and Vanilla JavaScript."
+    />
+
+    <!-- Sets the browser tab title -->
+    <title>Fernando Lozano Inc | Portfolio</title>
+
+    <!-- Adds the favicon icon to the browser tab -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon/dark/favicon-32x32.png"
+    />
+
+    <!-- Connects the external CSS stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Main website header and navigation -->
+    <header class="site-header">
+      <nav class="navbar container" aria-label="Main navigation">
+        <!-- Website logo / brand name -->
+        <a class="logo" href="#home">Fernando Lozano Inc</a>
+
+        <!-- Mobile menu button -->
+        <button
+          class="menu-button"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-list"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- Main navigation links -->
+        <ul class="nav-links" id="nav-list">
+          <li><a class="nav-link active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="#certificates">Certificates</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#blog">Blog</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Theme mode toggle button -->
+        <button
+          class="theme-toggle magnetic"
+          type="button"
+          aria-label="Toggle light mode"
+        >
+          ◐
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main page content -->
+    <main>
+      <!-- Home hero section with video background -->
+      <section id="home" class="hero section-focusable">
+        <!-- Decorative video background -->
+        <div class="hero-media" aria-hidden="true">
+          <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          >
+            <source src="assets/videos/home-video.mp4" type="video/mp4" />
+          </video>
+
+          <!-- Dark overlay for better text readability -->
+          <div class="hero-overlay"></div>
+
+          <!-- Decorative gradient effects -->
+          <div class="hero-gradient hero-gradient-one"></div>
+          <div class="hero-gradient hero-gradient-two"></div>
+        </div>
+
+        <!-- Hero text and image layout -->
+        <div class="container hero-layout">
+          <!-- Main introduction text -->
+          <div class="hero-copy">
+            <p class="eyebrow reveal fade-down">Personal Portfolio</p>
+            <h1 class="hero-title reveal fade-up">Fernando<br />Lozano Inc</h1>
+
+            <p class="hero-subtitle reveal fade-up delay-1">
+              HTML5, CSS3, and Vanilla JavaScript portfolio experience.
+            </p>
+
+            <p class="lead reveal fade-up delay-2">
+              A clean local website with a real video background, animated text,
+              animated images, animated cards, and smooth navigation effects.
+            </p>
+
+            <!-- Hero action buttons -->
+            <div class="hero-actions reveal fade-up delay-3">
+              <a class="button primary magnetic" href="#portfolio">
+                View Portfolio
+              </a>
+
+              <a class="button secondary magnetic" href="#contact">
+                Contact Me
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero profile image -->
+          <figure class="hero-card reveal zoom-in delay-2">
+            <div class="image-frame floating-card">
+              <img
+                class="profile-image"
+                src="assets/images/profile4.png"
+                alt="Featured profile visual for Fernando Lozano Inc"
+              />
+            </div>
+          </figure>
+        </div>
+
+        <!-- Scroll indicator link -->
+        <a
+          class="scroll-indicator magnetic"
+          href="#about"
+          aria-label="Scroll to About section"
+        >
+          <span></span>
+        </a>
+      </section>
+
+      <!-- About section -->
+      <section id="about" class="section alt section-focusable">
+        <div class="container two-column">
+          <!-- About text content -->
+          <div class="section-heading reveal fade-right">
+            <p class="eyebrow">About</p>
+            <h2>Structured, visual, and modern web design.</h2>
+
+            <p>
+              I build and study websites with clear HTML5 structure, organized
+              CSS3 styling, and Vanilla JavaScript interactions. This version
+              focuses on stronger visual motion and section-by-section
+              animation.
+            </p>
+
+            <p>
+              The page stays local: no Google Fonts, no Bootstrap, no
+              SweetAlert, and no external internet dependency.
+            </p>
+          </div>
+
+          <!-- About feature cards -->
+          <div class="stack-grid">
+            <article class="info-card reveal fade-left delay-1 magnetic">
+              <h3>Semantic HTML5</h3>
+              <p>
+                Professional structure using header, nav, main, section,
+                article, and footer.
+              </p>
+            </article>
+
+            <article class="info-card reveal fade-left delay-2 magnetic">
+              <h3>CSS3 Motion</h3>
+              <p>
+                Transitions, transforms, keyframes, grids, flexbox, overlays,
+                and responsive design.
+              </p>
+            </article>
+
+            <article class="info-card reveal fade-left delay-3 magnetic">
+              <h3>Vanilla JavaScript</h3>
+              <p>
+                IntersectionObserver, smooth section focus, active navigation,
+                and form behavior.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio section -->
+      <section id="portfolio" class="section section-focusable">
+        <div class="container">
+          <!-- Portfolio section heading -->
+          <div class="section-heading center reveal fade-up">
+            <p class="eyebrow">Portfolio</p>
+            <h2>Projects and visual practice</h2>
+            <p>
+              Animated cards with hover elevation, image zoom, and staggered
+              entrance effects.
+            </p>
+          </div>
+
+          <!-- Portfolio project cards -->
+          <div class="card-grid">
+            <article class="card reveal fade-up delay-1 magnetic">
+              <div class="media-wrap">
+                <img
+                  src="assets/images/game-ach.png"
+                  alt="Game achievement UI preview"
+                />
+              </div>
+              <h3>Game Achievements UI</h3>
+              <p>
+                A gaming-inspired interface built with HTML and CSS visual
+                composition.
+              </p>
+            </article>
+
+            <article class="card reveal fade-up delay-2 magnetic">
+              <div class="media-wrap">
+                <img
+                  src="assets/images/movie-emb.png"
+                  alt="Movie review layout preview"
+                />
+              </div>
+              <h3>Movie Review Layout</h3>
+              <p>
+                An editorial layout concept focused on strong visuals and
+                content hierarchy.
+              </p>
+            </article>
+
+            <article class="card reveal fade-up delay-3 magnetic">
+              <div class="media-wrap">
+                <img
+                  src="assets/images/profile3.png"
+                  alt="Portfolio visual preview"
+                />
+              </div>
+              <h3>Personal Portfolio</h3>
+              <p>
+                A one-page website reorganized with cleaner files and stronger
+                animations.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificates section -->
+      <section id="certificates" class="section alt section-focusable">
+        <div class="container">
+          <!-- Certificates section heading -->
+          <div class="section-heading center reveal fade-up">
+            <p class="eyebrow">Certificates</p>
+            <h2>Learning milestones</h2>
+            <p>
+              This section uses rotating card reveals and image hover animation.
+            </p>
+          </div>
+
+          <!-- Certificate cards -->
+          <div class="card-grid">
+            <article class="card reveal rotate-in delay-1 magnetic">
+              <div class="media-wrap">
+                <img
+                  src="assets/images/certificates.png"
+                  alt="certificates certificate preview"
+                />
+              </div>
+              <h3>Certificates CSS</h3>
+              <p>
+                Front-end fundamentals focused on styling and web interface
+                structure.
+              </p>
+            </article>
+
+            <article class="card reveal rotate-in delay-2 magnetic">
+              <div class="media-wrap">
+                <img
+                  src="assets/images/logo-light.png"
+                  alt="Responsive design certificate placeholder"
+                />
+              </div>
+              <h3>Responsive Web Design</h3>
+              <p>
+                Prepared space for responsive layout achievements and front-end
+                study material.
+              </p>
+            </article>
+
+            <article class="card reveal rotate-in delay-3 magnetic">
+              <div class="media-wrap">
+                <img
+                  src="assets/images/profile4.png"
+                  alt="JavaScript practice preview"
+                />
+              </div>
+              <h3>JavaScript Practice</h3>
+              <p>
+                Practice area for interactive web exercises and interface
+                behavior.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills section -->
+      <section id="skills" class="section section-focusable">
+        <div class="container two-column skills-layout">
+          <!-- Skills section text -->
+          <div class="section-heading reveal fade-right">
+            <p class="eyebrow">Skills</p>
+            <h2>Front-end foundations with motion.</h2>
+            <p>
+              The skills section uses animated chips and progress bars so the
+              content feels active and modern.
+            </p>
+          </div>
+
+          <!-- Skills list and progress bars -->
+          <div>
+            <!-- Skill chips -->
+            <ul class="skills-list" aria-label="Skill list">
+              <li class="skill-chip reveal pop-in delay-1">HTML5</li>
+              <li class="skill-chip reveal pop-in delay-2">CSS3</li>
+              <li class="skill-chip reveal pop-in delay-3">JavaScript</li>
+              <li class="skill-chip reveal pop-in delay-4">
+                Responsive Design
+              </li>
+              <li class="skill-chip reveal pop-in delay-5">GitHub</li>
+              <li class="skill-chip reveal pop-in delay-6">Web Layout</li>
+            </ul>
+
+            <!-- Animated progress bars -->
+            <div class="progress-panel">
+              <div class="progress-item reveal fade-left delay-1">
+                <div class="progress-label">
+                  <span>HTML5</span><span>90%</span>
+                </div>
+                <div class="progress-bar">
+                  <span style="--bar-width: 90%"></span>
+                </div>
+              </div>
+
+              <div class="progress-item reveal fade-left delay-2">
+                <div class="progress-label">
+                  <span>CSS3</span><span>88%</span>
+                </div>
+                <div class="progress-bar">
+                  <span style="--bar-width: 88%"></span>
+                </div>
+              </div>
+
+              <div class="progress-item reveal fade-left delay-3">
+                <div class="progress-label">
+                  <span>JavaScript</span><span>80%</span>
+                </div>
+                <div class="progress-bar">
+                  <span style="--bar-width: 80%"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog section -->
+      <section id="blog" class="section alt section-focusable">
+        <div class="container">
+          <!-- Blog section heading -->
+          <div class="section-heading center reveal fade-up">
+            <p class="eyebrow">Blog</p>
+            <h2>Review-style visual entries</h2>
+            <p>Timeline-style blocks animate from alternating directions.</p>
+          </div>
+
+          <!-- Blog timeline cards -->
+          <div class="timeline">
+            <article class="timeline-item reveal fade-right delay-1 magnetic">
+              <div class="timeline-media">
+                <img
+                  src="assets/images/movie-emb.png"
+                  alt="Barbie review preview"
+                />
+              </div>
+              <div class="timeline-content">
+                <h3>Embestida (2026)</h3>
+                <p>
+                  A colorful and visually expressive review concept with
+                  emphasis on design and atmosphere.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal fade-left delay-2 magnetic">
+              <div class="timeline-media">
+                <img
+                  src="assets/images/profile3.png"
+                  alt="Evangelion review preview"
+                />
+              </div>
+              <div class="timeline-content">
+                <h3>Evangelion 3.0+1.0</h3>
+                <p>
+                  A review layout prepared for reflections on visual
+                  storytelling and cinematic structure.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal fade-right delay-3 magnetic">
+              <div class="timeline-media">
+                <img
+                  src="assets/images/game-ach.png"
+                  alt="Grand Budapest review preview"
+                />
+              </div>
+              <div class="timeline-content">
+                <h3>The Grand Budapest Hotel</h3>
+                <p>
+                  A card prepared for visual analysis focused on composition,
+                  palette, and direction.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact section -->
+      <section id="contact" class="section section-focusable">
+        <div class="container contact-layout">
+          <!-- Contact information text -->
+          <div class="section-heading reveal fade-right">
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s start a conversation.</h2>
+            <p>
+              This form is currently local only. It does not send data anywhere
+              yet because it is not connected to a backend, email API, or
+              server-side script.
+            </p>
+          </div>
+
+          <!-- Contact form -->
+          <form class="contact-form reveal fade-left" novalidate>
+            <!-- Name input field -->
+            <div class="field reveal fade-up delay-1">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <!-- Email input field -->
+            <div class="field reveal fade-up delay-2">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <!-- Message textarea field -->
+            <div class="field reveal fade-up delay-3">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Form submit button -->
+            <div class="reveal fade-up delay-4">
+              <button class="button primary magnetic" type="submit">
+                Submit
+              </button>
+            </div>
+
+            <!-- Dynamic form message from JavaScript -->
+            <p class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Website footer -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <!-- Footer brand information -->
+        <div>
+          <strong>Fernando Lozano Inc</strong>
+          <p>
+            Portfolio website built with HTML5, CSS3, and Vanilla JavaScript.
+          </p>
+        </div>
+
+        <!-- Footer project and copyright information -->
+        <div class="footer-right">
+          <p>Local project • No external web dependencies</p>
+
+          <p class="copyright">
+            &copy; 2026 Fernando Lozano Inc. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Connects the external JavaScript file -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
